@@ -142,6 +142,23 @@ public class IndividualByLastNameFirstNameComparatorTest {
     }
 
     /**
+     * Test for {@link IndividualByLastNameFirstNameComparator#compare(Individual, Individual)} . Tests when both names are identical.
+     */
+    @Test
+    public void testBothNamesSame() {
+        PersonalName n1 = new PersonalName();
+        PersonalName n2 = new PersonalName();
+        n1.setSurname("Marley");
+        n2.setSurname("Marley");
+        n1.setGivenName("Bob");
+        n2.setGivenName("Bob");
+        i1.getNames(true).add(n1);
+        i2.getNames(true).add(n2);
+
+        assertTrue("Individuals with the same name should compare equals", c.compare(i1, i2) == 0);
+    }
+
+    /**
      * Helper method for readability, that adds a basic name to an individual
      * 
      * @param i
