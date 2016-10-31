@@ -89,7 +89,7 @@ public class IndividualByLastNameFirstNameComparator implements Serializable, Co
                     s2 = sn + ", " + gn;
                 }
             } else {
-                s2 = n2.getSurname() + ", " + n2.getGivenName();
+                s2 = n2.getSurname() + "," + n2.getGivenName();
             }
         }
 
