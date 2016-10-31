@@ -155,7 +155,7 @@ public class IndividualByLastNameFirstNameComparatorTest {
         i1.getNames(true).add(n1);
         i2.getNames(true).add(n2);
 
-        assertTrue("Individuals with the same name should compare equals", c.compare(i1, i2) == 0);
+        assertTrue("Individuals with the same name should compare equal", c.compare(i1, i2) == 0);
     }
 
     /**
