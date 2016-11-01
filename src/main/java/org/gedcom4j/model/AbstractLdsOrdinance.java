@@ -102,7 +102,7 @@ public abstract class AbstractLdsOrdinance extends AbstractNotesElement implemen
             status = new StringWithCustomFacts(other.status);
         }
         if (other.temple != null) {
-            temple = new StringWithCustomFacts(other.temple);
+            temple = new StringWithCustomFacts(temple);
         }
     }
 
