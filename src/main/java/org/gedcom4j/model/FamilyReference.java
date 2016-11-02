@@ -94,7 +94,7 @@ public class FamilyReference extends AbstractElement {
             if (other.family != null) {
                 return false;
             }
-        } else if (!family.equals(other.family)) {
+        } else if (family != other.family) {
             return false;
         }
         return true;
