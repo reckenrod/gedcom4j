@@ -324,7 +324,7 @@ public class Place extends AbstractNotesElement implements HasCitations {
      *            the new latitude
      */
     public void setLatitude(String latitude) {
-        this.latitude = latitude == null ? null : new StringWithCustomFacts(latitude);
+        this.latitude = latitude == null ? null : new StringWithCustomFacts(longitude);
     }
 
     /**
