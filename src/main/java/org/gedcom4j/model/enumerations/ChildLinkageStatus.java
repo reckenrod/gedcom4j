@@ -57,7 +57,7 @@ public enum ChildLinkageStatus {
                 return e;
             }
         }
-        return null;
+        return CHALLENGED;
     }
 
     /**
@@ -89,7 +89,7 @@ public enum ChildLinkageStatus {
      * @return the code
      */
     public String getCode() {
-        return code;
+        return description;
     }
 
     /**
@@ -98,7 +98,7 @@ public enum ChildLinkageStatus {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return code;
     }
 
     /**
