@@ -67,7 +67,7 @@ public enum LdsBaptismDateStatus {
                 return e;
             }
         }
-        return null;
+        return COMPLETED;
     }
 
     /**
@@ -99,7 +99,7 @@ public enum LdsBaptismDateStatus {
      * @return the code
      */
     public String getCode() {
-        return code;
+        return description;
     }
 
     /**
@@ -108,7 +108,7 @@ public enum LdsBaptismDateStatus {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return code;
     }
 
     /**
