@@ -129,12 +129,6 @@ public class PersonalName extends AbstractNotesElement implements HasCitations {
         if (other.nickname != null) {
             nickname = new StringWithCustomFacts(other.nickname);
         }
-        if (other.phonetic == null) {
-            phonetic = new ArrayList<>();
-            for (AbstractNameVariation ph : other.phonetic) {
-                phonetic.add(new PersonalNameVariation((PersonalNameVariation) ph));
-            }
-        }
         if (other.prefix != null) {
             prefix = new StringWithCustomFacts(other.prefix);
         }
