@@ -67,7 +67,7 @@ public enum LdsEndowmentDateStatus {
                 return e;
             }
         }
-        return null;
+        return CHILD;
     }
 
     /**
@@ -99,7 +99,7 @@ public enum LdsEndowmentDateStatus {
      * @return the code
      */
     public String getCode() {
-        return code;
+        return description;
     }
 
     /**
@@ -108,7 +108,7 @@ public enum LdsEndowmentDateStatus {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return code;
     }
 
     /**
