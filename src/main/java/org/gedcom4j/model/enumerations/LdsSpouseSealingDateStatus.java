@@ -64,7 +64,7 @@ public enum LdsSpouseSealingDateStatus {
                 return e;
             }
         }
-        return null;
+        return UNCLEARED;
     }
 
     /**
@@ -96,7 +96,7 @@ public enum LdsSpouseSealingDateStatus {
      * @return the code
      */
     public String getCode() {
-        return code;
+        return description;
     }
 
     /**
@@ -105,7 +105,7 @@ public enum LdsSpouseSealingDateStatus {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return code;
     }
 
     /**
