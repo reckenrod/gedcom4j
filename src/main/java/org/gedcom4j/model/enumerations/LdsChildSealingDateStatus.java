@@ -70,7 +70,7 @@ public enum LdsChildSealingDateStatus {
                 return e;
             }
         }
-        return null;
+        return DNS;
     }
 
     /**
@@ -102,7 +102,7 @@ public enum LdsChildSealingDateStatus {
      * @return the code
      */
     public String getCode() {
-        return code;
+        return description;
     }
 
     /**
@@ -111,7 +111,7 @@ public enum LdsChildSealingDateStatus {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return code;
     }
 
     /**
