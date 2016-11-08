@@ -67,7 +67,7 @@ public class LdsIndividualOrdinanceCopyTest extends AbstractCopyTest {
     public void testValues() {
         LdsIndividualOrdinance orig = new LdsIndividualOrdinance();
         orig.setDate("A");
-        orig.setTemple("D");
+        orig.setTemple("T");
         orig.getCitations(true).add(new CitationWithoutSource());
         orig.getCitations(true).add(new CitationWithSource());
         FamilyChild fc = new FamilyChild();
