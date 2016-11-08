@@ -60,8 +60,8 @@ import org.gedcom4j.model.enumerations.SupportedVersion;
  * </p>
  * <p>
  * Does a deep traversal over the items in the {@link Gedcom} structure and checks them for problems, errors, etc, which are
- * represented as {@link Finding} objects. These objects contain problem codes, descriptions, severity ratings, and references to
- * the objects that have problems.
+ * represented as {@link Validator.Finding} objects. These objects contain problem codes, descriptions, severity ratings, and
+ * references to the objects that have problems.
  * </p>
  * <p>
  * Typical usage is to instantiate a Validator with the Gedcom being validated, call the {@link #validate()} method, then examine
@@ -134,10 +134,9 @@ public class Validator implements Serializable {
         private final String stackTrace;
 
         /**
-         * Default constructor
+         * Default constructor. Deliberately package-private.
          */
         Finding() {
-            // Default constructor does nothing
             Writer result = new StringWriter();
             PrintWriter printWriter = new PrintWriter(result);
             new ValidationException().printStackTrace(printWriter);
@@ -675,6 +674,25 @@ public class Validator implements Serializable {
     }
 
     /**
+     * Is the string supplied non-null, and has something other than whitespace in it? Deliberately package-private
+     * 
+     * @param s
+     *            the strings
+     * @return true if the string supplied non-null, and has something other than whitespace in it
+     */
+    boolean isSpecified(String s) {
+        if (s == null || s.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Check if the finding can be auto-repaired. Delegates to the registered auto-repair responder, if any.
      * 
      * @param validationFinding
@@ -808,7 +826,7 @@ public class Validator implements Serializable {
     private void determineGedcomSpecVersion(Gedcom g) {
         Header h = g.getHeader();
         if (h == null || h.getGedcomVersion() == null || h.getGedcomVersion().getVersionNumber() == null) {
-            Finding vf = newFinding(h, Severity.INFO, ProblemCode.UNABLE_TO_DETERMINE_GEDCOM_VERSION, null);
+            Finding vf = newFinding(g, Severity.INFO, ProblemCode.UNABLE_TO_DETERMINE_GEDCOM_VERSION, null);
             if (mayRepair(vf)) {
                 if (h == null) {
                     h = new Header();
@@ -834,25 +852,6 @@ public class Validator implements Serializable {
                 v551 = false;
             }
         }
-    }
-
-    /**
-     * Is the string supplied non-null, and has something other than whitespace in it?
-     * 
-     * @param s
-     *            the strings
-     * @return true if the string supplied non-null, and has something other than whitespace in it
-     */
-    private boolean isSpecified(String s) {
-        if (s == null || s.isEmpty()) {
-            return false;
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (!Character.isWhitespace(s.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }
