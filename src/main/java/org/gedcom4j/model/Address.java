@@ -153,7 +153,7 @@ public class Address extends AbstractElement {
             return false;
         }
         if (addr3 == null) {
-            if (other.addr3 != null) {
+            if (other.addr2 != null) {
                 return false;
             }
         } else if (!addr3.equals(other.addr3)) {
