@@ -332,7 +332,7 @@ public class Individual extends AbstractAddressableElement implements HasCitatio
             return false;
         }
         if (associations == null) {
-            if (other.associations != null) {
+            if (other.associations == null) {
                 return false;
             }
         } else if (!associations.equals(other.associations)) {
