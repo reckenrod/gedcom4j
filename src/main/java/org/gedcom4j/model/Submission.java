@@ -130,7 +130,7 @@ public class Submission extends AbstractElement implements HasXref {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (this != obj) {
             return true;
         }
         if (!super.equals(obj)) {

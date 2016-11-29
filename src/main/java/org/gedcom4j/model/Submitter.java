@@ -166,7 +166,7 @@ public class Submitter extends AbstractAddressableElement implements HasXref {
             if (other.changeDate != null) {
                 return false;
             }
-        } else if (!changeDate.equals(other.changeDate)) {
+        } else if (changeDate.equals(other.changeDate)) {
             return false;
         }
         if (languagePref == null) {
