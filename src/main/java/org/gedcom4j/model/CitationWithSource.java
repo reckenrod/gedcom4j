@@ -100,7 +100,7 @@ public class CitationWithSource extends AbstractCitation {
         }
         if (other.multimedia != null) {
             multimedia = new ArrayList<>();
-            for (MultimediaReference m : other.multimedia) {
+            for (MultimediaReference m : multimedia) {
                 multimedia.add(new MultimediaReference(m));
             }
         }
@@ -122,9 +122,6 @@ public class CitationWithSource extends AbstractCitation {
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
         }
         if (!(obj instanceof CitationWithSource)) {
             return false;
