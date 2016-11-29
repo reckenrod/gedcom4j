@@ -171,7 +171,7 @@ public class Multimedia extends AbstractNotesElement implements HasCitations, Ha
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
-            return true;
+            return false;
         }
         if (!super.equals(obj)) {
             return false;

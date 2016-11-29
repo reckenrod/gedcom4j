@@ -185,7 +185,7 @@ public class PersonalName extends AbstractNotesElement implements HasCitations {
             if (other.givenName != null) {
                 return false;
             }
-        } else if (!givenName.equals(other.givenName)) {
+        } else if (givenName.equals(other.givenName)) {
             return false;
         }
         if (nickname == null) {
