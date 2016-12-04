@@ -83,6 +83,7 @@ public class SourceSystemCopyTest extends AbstractCopyTest {
         orig.setSourceData(hsd);
         orig.setSystemId("MONKEY");
         orig.setVersionNum("Banana");
+        orig.getCustomFacts(true).add(getTestCustomFact());
 
         SourceSystem copy = new SourceSystem(orig);
         assertEquals(orig, copy);

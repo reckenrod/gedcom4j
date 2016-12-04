@@ -45,29 +45,55 @@ public class SourceSystemTest {
     public void testEqualsObject() {
         SourceSystem ss1 = new SourceSystem();
         assertEquals(ss1, ss1);
+        assertFalse(ss1.equals(null));
+        assertFalse(ss1.equals(new GedcomVersion()));
+
         SourceSystem ss2 = new SourceSystem();
-        assertEquals("equals() should be the same for equivalent objects", ss1, ss2);
+        assertEquals(ss1, ss2);
+
+        ss1.setCorporation(new Corporation());
+        assertFalse(ss1.equals(ss2));
+        ss2.setCorporation(new Corporation());
+        assertEquals(ss1, ss2);
+        ss1.setCorporation((Corporation) null);
+        assertFalse(ss1.equals(ss2));
+        ss2.setCorporation((Corporation) null);
+        assertEquals(ss1, ss2);
 
         ss1.setProductName("Frying Pan");
-        assertFalse("They're not equivalent anymore, so equals should be false", ss1.equals(ss2));
+        assertFalse(ss1.equals(ss2));
         ss2.setProductName("Frying Pan");
-        assertEquals("equals() should be the same for equivalent objects", ss1, ss2);
+        assertEquals(ss1, ss2);
         ss1.setProductName((String) null);
-        assertFalse("They're not equivalent anymore, so equals should be false", ss1.equals(ss2));
+        assertFalse(ss1.equals(ss2));
         ss2.setProductName((String) null);
-        assertEquals("equals() should be the same for equivalent objects", ss1, ss2);
+        assertEquals(ss1, ss2);
+
+        ss1.setSourceData(new HeaderSourceData());
+        assertFalse(ss1.equals(ss2));
+        ss2.setSourceData(new HeaderSourceData());
+        assertEquals(ss1, ss2);
+        ss1.setSourceData((HeaderSourceData) null);
+        assertFalse(ss1.equals(ss2));
+        ss2.setSourceData((HeaderSourceData) null);
+        assertEquals(ss1, ss2);
 
         ss1.setSystemId("Frying Pan");
-        assertFalse("They're not equivalent anymore, so equals should be false", ss1.equals(ss2));
+        assertFalse(ss1.equals(ss2));
         ss2.setSystemId("Frying Pan");
-        assertEquals("equals() should be the same for equivalent objects", ss1, ss2);
+        assertEquals(ss1, ss2);
         ss1.setSystemId(null);
-        assertFalse("They're not equivalent anymore, so equals should be false", ss1.equals(ss2));
+        assertFalse(ss1.equals(ss2));
         ss2.setSystemId(null);
 
-        assertEquals("equals() should be the same for equivalent objects", ss1, ss2);
-        assertFalse(ss1.equals(null));
-        assertFalse(ss1.equals(this));
+        ss1.setVersionNum("2");
+        assertFalse(ss1.equals(ss2));
+        ss2.setVersionNum("2");
+        assertEquals(ss1, ss2);
+        ss1.setVersionNum((String) null);
+        assertFalse(ss1.equals(ss2));
+        ss2.setVersionNum((String) null);
+        assertEquals(ss1, ss2);
     }
 
     /**
