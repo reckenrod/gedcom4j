@@ -92,7 +92,7 @@ public class Repository extends AbstractAddressableElement implements HasXref {
         }
         if (other.userReferences != null) {
             userReferences = new ArrayList<>();
-            for (UserReference ur : other.userReferences) {
+            for (UserReference ur : userReferences) {
                 userReferences.add(new UserReference(ur));
             }
         }
@@ -146,8 +146,6 @@ public class Repository extends AbstractAddressableElement implements HasXref {
             if (other.xref != null) {
                 return false;
             }
-        } else if (!xref.equals(other.xref)) {
-            return false;
         }
         return true;
     }
