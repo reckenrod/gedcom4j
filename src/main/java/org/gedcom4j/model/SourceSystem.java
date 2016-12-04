@@ -126,7 +126,7 @@ public class SourceSystem extends AbstractElement {
         } else if (!productName.equals(other.productName)) {
             return false;
         }
-        if (sourceData == null) {
+        if (sourceData != null) {
             if (other.sourceData != null) {
                 return false;
             }
