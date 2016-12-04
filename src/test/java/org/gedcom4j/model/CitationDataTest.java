@@ -70,42 +70,31 @@ public class CitationDataTest {
      */
     @Test
     public void testEquals() {
-        CitationData c1 = new CitationData();
-        CitationData c2 = new CitationData();
-        assertNotSame(c1, c2);
-        assertEquals(c1, c2);
+        CitationData cd1 = new CitationData();
+        assertFalse(cd1.equals(null));
+        assertFalse(cd1.equals(new Corporation()));
+        assertEquals(cd1, cd1);
 
-        c1.customFacts = null;
-        if (Options.isCollectionInitializationEnabled()) {
-            assertFalse(c1.equals(c2));
-        } else {
-            assertEquals(c1, c2);
-        }
-        c1.getCustomFacts(true).addAll(new ArrayList<CustomFact>());
-        if (Options.isCollectionInitializationEnabled()) {
-            assertEquals(c1, c2);
-        } else {
-            assertFalse(c1.equals(c2));
-        }
+        CitationData cd2 = new CitationData();
+        assertEquals(cd1, cd2);
 
-        c1.setEntryDate("Frying Pan");
-        assertFalse(c1.equals(c2));
-        c2.setEntryDate("Frying Pan");
-        if (Options.isCollectionInitializationEnabled()) {
-            assertEquals(c1, c2);
-        } else {
-            assertFalse(c1.equals(c2));
-        }
+        cd2.getSourceText(true).add(new MultiStringWithCustomFacts());
+        assertFalse(cd1.equals(cd2));
+        cd1.getSourceText(true).add(new MultiStringWithCustomFacts());
+        assertEquals(cd1, cd2);
+        cd1.getSourceText().clear();
+        assertFalse(cd1.equals(cd2));
+        cd2.getSourceText().clear();
+        assertEquals(cd1, cd2);
 
-        c1.getSourceText(true).add(new MultiStringWithCustomFacts());
-        assertFalse(c1.equals(c2));
-        c2.getSourceText(true).add(new MultiStringWithCustomFacts());
-        if (Options.isCollectionInitializationEnabled()) {
-            assertEquals(c1, c2);
-        } else {
-            assertFalse(c1.equals(c2));
-        }
-
+        cd2.setEntryDate("1");
+        assertFalse(cd1.equals(cd2));
+        cd1.setEntryDate("1");
+        assertEquals(cd1, cd2);
+        cd2.setEntryDate((String) null);
+        assertFalse(cd1.equals(cd2));
+        cd1.setEntryDate((String) null);
+        assertEquals(cd1, cd2);
     }
 
     /**
