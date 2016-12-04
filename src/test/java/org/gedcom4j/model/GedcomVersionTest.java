@@ -28,6 +28,7 @@ package org.gedcom4j.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import org.gedcom4j.model.enumerations.SupportedVersion;
 
 import org.junit.Test;
 
@@ -44,15 +45,36 @@ public class GedcomVersionTest {
     @SuppressWarnings("PMD.EqualsNull")
     public void testEqualsObject() {
         GedcomVersion gv1 = new GedcomVersion();
-        assertEquals(gv1, gv1);
-        GedcomVersion gv2 = new GedcomVersion();
-        assertEquals("objects are equal, so equals() should return true", gv1, gv2);
-        gv1.setGedcomForm("Frying Pan");
-        assertFalse("objects are not equal, so equals() should not return true", gv1.equals(gv2));
-        gv2.setGedcomForm("Frying Pan");
-        assertEquals("objects are equal again, so equals() should return true", gv1, gv2);
         assertFalse(gv1.equals(null));
-        assertFalse(gv1.equals(this));
+        assertFalse(gv1.equals(new Corporation()));
+        assertEquals(gv1, gv1);
+
+        GedcomVersion gv2 = new GedcomVersion();
+        assertEquals(gv1, gv2);
+
+        gv2.setGedcomForm("Yo");
+        assertFalse(gv1.equals(gv2));
+        gv1.setGedcomForm("Yo");
+        assertEquals(gv1, gv2);
+        gv1.setGedcomForm((String) null);
+        assertFalse(gv1.equals(gv2));
+        gv2.setGedcomForm((String) null);
+        assertEquals(gv1, gv2);
+
+        gv2.setVersionNumber(new StringWithCustomFacts("Yo"));
+        assertFalse(gv1.equals(gv2));
+        gv1.setVersionNumber(new StringWithCustomFacts("Yo"));
+        assertEquals(gv1, gv2);
+        gv1.setVersionNumber("Test");
+        assertFalse(gv1.equals(gv2));
+        gv2.setVersionNumber("Test");
+        assertEquals(gv1, gv2);
+        gv1.setVersionNumber((String) null);
+        assertFalse(gv1.equals(gv2));
+        gv2.setVersionNumber((String) null);
+        assertEquals(gv1, gv2);
+        gv1.setVersionNumber((SupportedVersion) null);
+        assertEquals(gv1, gv2);
     }
 
     /**
