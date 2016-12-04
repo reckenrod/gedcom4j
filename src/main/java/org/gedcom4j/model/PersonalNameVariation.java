@@ -169,8 +169,6 @@ public class PersonalNameVariation extends AbstractNameVariation implements HasN
             if (other.nickname != null) {
                 return false;
             }
-        } else if (!nickname.equals(other.nickname)) {
-            return false;
         }
         if (noteStructures == null) {
             if (other.noteStructures != null) {
