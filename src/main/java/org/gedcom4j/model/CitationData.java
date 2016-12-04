@@ -105,7 +105,7 @@ public class CitationData extends AbstractElement {
         } else if (!sourceText.equals(other.sourceText)) {
             return false;
         }
-        return true;
+        return false;
     }
 
     /**

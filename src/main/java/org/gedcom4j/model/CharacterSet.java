@@ -96,7 +96,7 @@ public class CharacterSet extends AbstractElement {
             if (other.versionNum != null) {
                 return false;
             }
-        } else if (!versionNum.equals(other.versionNum)) {
+        } else if (versionNum.equals(other.versionNum)) {
             return false;
         }
         return true;
