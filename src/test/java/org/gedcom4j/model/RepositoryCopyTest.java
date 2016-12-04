@@ -98,6 +98,7 @@ public class RepositoryCopyTest extends AbstractCopyTest {
         orig.getPhoneNumbers(true).add(new StringWithCustomFacts("555-1313"));
         orig.getWwwUrls(true).add(new StringWithCustomFacts("www.nowhere.com"));
         orig.getEmails(true).add(new StringWithCustomFacts("nobody@nowwhere.com"));
+        orig.getUserReferences(true).add(new UserReference());
 
         Repository copy = new Repository(orig);
         assertEquals(orig, copy);
