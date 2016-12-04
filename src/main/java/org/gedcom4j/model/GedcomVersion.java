@@ -158,7 +158,7 @@ public class GedcomVersion extends AbstractElement {
      *            the new version number
      */
     public void setVersionNumber(String versionNumber) {
-        if (versionNumber != null) {
+        if (versionNumber == null) {
             this.versionNumber = new StringWithCustomFacts(versionNumber);
         } else {
             this.versionNumber = null;
