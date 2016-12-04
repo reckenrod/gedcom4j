@@ -44,16 +44,30 @@ public class CharacterSetTest {
     @SuppressWarnings("PMD.EqualsNull")
     public void testEqualsObject() {
         CharacterSet cs1 = new CharacterSet();
+        assertFalse(cs1.equals(null));
+        assertFalse(cs1.equals(new Corporation()));
         assertEquals(cs1, cs1);
 
         CharacterSet cs2 = new CharacterSet();
-        assertEquals("objects are equal, so equals() should return true", cs1, cs2);
-        cs1.setCharacterSetName("Frying Pan");
-        assertFalse("objects are not equal, so equals() should not return true", cs1.equals(cs2));
-        cs2.setCharacterSetName("Frying Pan");
-        assertEquals("objects are equal again, so equals() should return true", cs1, cs2);
-        assertFalse(cs1.equals(null));
-        assertFalse(cs1.equals(this));
+        assertEquals(cs1, cs2);
+
+        cs2.setCharacterSetName("Test");
+        assertFalse(cs1.equals(cs2));
+        cs1.setCharacterSetName("Test");
+        assertEquals(cs1, cs2);
+        cs1.setCharacterSetName((String) null);
+        assertFalse(cs1.equals(cs2));
+        cs2.setCharacterSetName((String) null);
+        assertEquals(cs1, cs2);
+
+        cs2.setVersionNum("1");
+        assertFalse(cs1.equals(cs2));
+        cs1.setVersionNum("1");
+        assertEquals(cs1, cs2);
+        cs2.setVersionNum((String) null);
+        assertFalse(cs1.equals(cs2));
+        cs1.setVersionNum((String) null);
+        assertEquals(cs1, cs2);
     }
 
     /**
