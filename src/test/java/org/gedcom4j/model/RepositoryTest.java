@@ -111,6 +111,24 @@ public class RepositoryTest {
         assertFalse(r1.equals(r2));
         r2.setRecIdNumber((String) null);
         assertEquals(r1, r2);
+        
+        r2.getUserReferences(true).add(new UserReference());
+        assertFalse(r1.equals(r2));
+        r1.getUserReferences(true).add(new UserReference());
+        assertEquals(r1, r2);
+        r1.getUserReferences().clear();
+        assertFalse(r1.equals(r2));
+        r2.getUserReferences().clear();
+        assertEquals(r1, r2);
+
+        r2.setXref("23");
+        assertFalse(r1.equals(r2));
+        r1.setXref("23");
+        assertEquals(r1, r2);
+        r2.setXref((String) null);
+        assertFalse(r1.equals(r2));
+        r1.setXref((String) null);
+        assertEquals(r1, r2);
 
         assertFalse(r1.equals(null));
         assertFalse(r1.equals(this));
