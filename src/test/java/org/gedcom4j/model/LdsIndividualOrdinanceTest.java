@@ -52,6 +52,24 @@ public class LdsIndividualOrdinanceTest {
         LdsIndividualOrdinance lio2 = new LdsIndividualOrdinance();
         assertEquals(lio1, lio2);
 
+        lio2.getCitations(true).add(new CitationWithSource());
+        assertFalse(lio1.equals(lio2));
+        lio1.getCitations(true).add(new CitationWithSource());
+        assertEquals(lio1, lio2);
+        lio1.getCitations().clear();
+        assertFalse(lio1.equals(lio2));
+        lio2.getCitations().clear();
+        assertEquals(lio1, lio2);
+
+        lio2.setDate("Test");
+        assertFalse(lio1.equals(lio2));
+        lio1.setDate("Test");
+        assertEquals(lio1, lio2);
+        lio2.setDate((String) null);
+        assertFalse(lio1.equals(lio2));
+        lio1.setDate((String) null);
+        assertEquals(lio1, lio2);
+
         lio2.setFamilyWhereChild(new FamilyChild());
         assertFalse(lio1.equals(lio2));
         lio1.setFamilyWhereChild(new FamilyChild());
@@ -59,6 +77,33 @@ public class LdsIndividualOrdinanceTest {
         lio2.setFamilyWhereChild((FamilyChild) null);
         assertFalse(lio1.equals(lio2));
         lio1.setFamilyWhereChild((FamilyChild) null);
+        assertEquals(lio1, lio2);
+
+        lio2.setPlace("Test");
+        assertFalse(lio1.equals(lio2));
+        lio1.setPlace("Test");
+        assertEquals(lio1, lio2);
+        lio2.setPlace((String) null);
+        assertFalse(lio1.equals(lio2));
+        lio1.setPlace((String) null);
+        assertEquals(lio1, lio2);
+
+        lio2.setStatus("Test");
+        assertFalse(lio1.equals(lio2));
+        lio1.setStatus("Test");
+        assertEquals(lio1, lio2);
+        lio2.setStatus((String) null);
+        assertFalse(lio1.equals(lio2));
+        lio1.setStatus((String) null);
+        assertEquals(lio1, lio2);
+
+        lio2.setTemple("Test");
+        assertFalse(lio1.equals(lio2));
+        lio1.setTemple("Test");
+        assertEquals(lio1, lio2);
+        lio2.setTemple((String) null);
+        assertFalse(lio1.equals(lio2));
+        lio1.setTemple((String) null);
         assertEquals(lio1, lio2);
 
         lio2.setType(LdsIndividualOrdinanceType.BAPTISM);
