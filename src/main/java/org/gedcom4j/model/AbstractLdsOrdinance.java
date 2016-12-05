@@ -121,7 +121,7 @@ public abstract class AbstractLdsOrdinance extends AbstractNotesElement implemen
             return false;
         }
         AbstractLdsOrdinance other = (AbstractLdsOrdinance) obj;
-        if (getCitations() == null) {
+        if (getCitations() != null) {
             if (other.getCitations() != null) {
                 return false;
             }
