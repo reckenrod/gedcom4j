@@ -31,6 +31,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
 
 import org.gedcom4j.model.enumerations.AdoptedByWhichParent;
+import org.gedcom4j.model.enumerations.LdsIndividualOrdinanceType;
 import org.junit.Test;
 
 /**
@@ -77,6 +78,12 @@ public class LdsIndividualOrdinanceCopyTest extends AbstractCopyTest {
         Family f = new Family();
         fc.setFamily(f);
         orig.setFamilyWhereChild(fc);
+        orig.setType(LdsIndividualOrdinanceType.BAPTISM);
+        orig.setYNull("D");
+        orig.setPlace("E");
+        orig.setStatus("F");
+        orig.getNoteStructures(true).add(new NoteStructure());
+        orig.getCustomFacts(true).add(getTestCustomFact());
 
         LdsIndividualOrdinance copy = new LdsIndividualOrdinance(orig);
         assertEquals(orig, copy);
