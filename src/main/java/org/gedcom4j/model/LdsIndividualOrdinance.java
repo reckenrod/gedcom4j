@@ -71,7 +71,6 @@ public class LdsIndividualOrdinance extends AbstractLdsOrdinance {
             familyWhereChild = new FamilyChild(other.familyWhereChild);
         }
         type = other.type;
-        yNull = other.yNull;
     }
 
     /**
@@ -80,7 +79,7 @@ public class LdsIndividualOrdinance extends AbstractLdsOrdinance {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
-            return true;
+            return false;
         }
         if (!super.equals(obj)) {
             return false;
