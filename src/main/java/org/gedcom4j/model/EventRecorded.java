@@ -108,7 +108,7 @@ public class EventRecorded extends AbstractElement {
             if (other.jurisdiction != null) {
                 return false;
             }
-        } else if (!jurisdiction.equals(other.jurisdiction)) {
+        } else if (jurisdiction.equals(other.jurisdiction)) {
             return false;
         }
         return true;
