@@ -103,6 +103,7 @@ public class Repository extends AbstractAddressableElement implements HasXref {
      * {@inheritDoc}
      */
     @Override
+    @SuppressWarnings({"PMD.CollapsibleIfStatements"})
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

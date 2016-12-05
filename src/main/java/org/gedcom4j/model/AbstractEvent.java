@@ -168,7 +168,7 @@ public abstract class AbstractEvent extends AbstractAddressableElement implement
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings({ "PMD.ExcessiveMethodLength", "PMD.NcssMethodCount" })
+    @SuppressWarnings({ "PMD.ExcessiveMethodLength", "PMD.NcssMethodCount", "PMD.CollapsibleIfStatements"})
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

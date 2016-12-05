@@ -140,6 +140,7 @@ public class PersonalNameVariation extends AbstractNameVariation implements HasN
      * @return true if and only if the other object is equal to this one
      */
     @Override
+    @SuppressWarnings({"PMD.CollapsibleIfStatements"})
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
