@@ -44,15 +44,21 @@ public class CorporationTest {
     @SuppressWarnings("PMD.EqualsNull")
     public void testEqualsObject() {
         Corporation c1 = new Corporation();
-        assertEquals(c1, c1);
-        Corporation c2 = new Corporation();
-        assertEquals("CorporationTests are equal, so equals() should return true", c1, c2);
-        c1.setBusinessName("Frying Pan");
-        assertFalse("CorporationTests are no longer equal, so hashcodes should no longer equal", c1.equals(c2));
-        c2.setBusinessName("Frying Pan");
-        assertEquals("CorporationTests are equal again, so equals() should return true again", c1.hashCode(), c2.hashCode());
         assertFalse(c1.equals(null));
-        assertFalse(c1.equals(this));
+        assertFalse(c1.equals(new Gedcom()));
+        assertEquals(c1, c1);
+
+        Corporation c2 = new Corporation();
+        assertEquals(c1, c2);
+
+        c2.setBusinessName("123 Main St.");
+        assertFalse(c1.equals(c2));
+        c1.setBusinessName("123 Main St.");
+        assertEquals(c1, c2);
+        c1.setBusinessName((String) null);
+        assertFalse(c1.equals(c2));
+        c2.setBusinessName((String) null);
+        assertEquals(c1, c2);
     }
 
     /**
