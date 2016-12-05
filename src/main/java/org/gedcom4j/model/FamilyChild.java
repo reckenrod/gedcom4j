@@ -108,9 +108,6 @@ public class FamilyChild extends AbstractNotesElement {
         if (this == obj) {
             return true;
         }
-        if (!super.equals(obj)) {
-            return false;
-        }
         if (!(obj instanceof FamilyChild)) {
             return false;
         }
