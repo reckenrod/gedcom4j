@@ -51,14 +51,20 @@ public class StringTreeTest {
     @Test
     public void testEquals() {
         StringTree st1 = new StringTree();
-        StringTree st2 = new StringTree();
+        assertFalse(st1.equals(null));
+        assertFalse(st1.equals(new Corporation()));
+        assertEquals(st1, st1);
 
-        assertNotSame(st1, st2);
+        StringTree st2 = new StringTree();
         assertEquals(st1, st2);
 
-        st1.getChildren(true).add(new StringTree());
-        assertFalse(st1.equals(st2));
         st2.getChildren(true).add(new StringTree());
+        assertFalse(st1.equals(st2));
+        st1.getChildren(true).add(new StringTree());
+        assertEquals(st1, st2);
+        st1.getChildren().clear();
+        assertFalse(st1.equals(st2));
+        st2.getChildren().clear();
         assertEquals(st1, st2);
 
         st1.setLevel(1);
@@ -66,19 +72,36 @@ public class StringTreeTest {
         st2.setLevel(1);
         assertEquals(st1, st2);
 
-        st1.setXref("Frying Pan");
-        assertFalse(st1.equals(st2));
-        st2.setXref("Frying Pan");
-        assertEquals(st1, st2);
-
         st1.setLineNum(2);
         assertFalse(st1.equals(st2));
         st2.setLineNum(2);
         assertEquals(st1, st2);
-
-        st1.setValue("Test");
+        
+        st2.setTag("Test");
         assertFalse(st1.equals(st2));
+        st1.setTag("Test");
+        assertEquals(st1, st2);
+        st2.setTag((String) null);
+        assertFalse(st1.equals(st2));
+        st1.setTag((String) null);
+        assertEquals(st1, st2);
+
         st2.setValue("Test");
+        assertFalse(st1.equals(st2));
+        st1.setValue("Test");
+        assertEquals(st1, st2);
+        st2.setValue((String) null);
+        assertFalse(st1.equals(st2));
+        st1.setValue((String) null);
+        assertEquals(st1, st2);
+        
+        st2.setXref("23");
+        assertFalse(st1.equals(st2));
+        st1.setXref("23");
+        assertEquals(st1, st2);
+        st2.setXref((String) null);
+        assertFalse(st1.equals(st2));
+        st1.setXref((String) null);
         assertEquals(st1, st2);
     }
 
