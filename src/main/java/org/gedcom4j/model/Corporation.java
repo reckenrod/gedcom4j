@@ -89,7 +89,7 @@ public class Corporation extends AbstractAddressableElement {
             return false;
         }
 
-        return true;
+        return false;
     }
 
     /**
