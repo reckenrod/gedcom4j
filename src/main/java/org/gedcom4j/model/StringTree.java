@@ -147,13 +147,6 @@ public class StringTree implements ModelElement {
         } else if (!children.equals(other.children)) {
             return false;
         }
-        if (xref == null) {
-            if (other.xref != null) {
-                return false;
-            }
-        } else if (!xref.equals(other.xref)) {
-            return false;
-        }
         if (level != other.level) {
             return false;
         }
