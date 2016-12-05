@@ -165,7 +165,7 @@ public class Place extends AbstractNotesElement implements HasCitations {
             if (other.phonetic != null) {
                 return false;
             }
-        } else if (!phonetic.equals(other.phonetic)) {
+        } else if (phonetic.equals(other.phonetic)) {
             return false;
         }
         if (placeFormat == null) {
