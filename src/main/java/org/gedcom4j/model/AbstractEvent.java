@@ -213,8 +213,6 @@ public abstract class AbstractEvent extends AbstractAddressableElement implement
             if (other.date != null) {
                 return false;
             }
-        } else if (!date.equals(other.date)) {
-            return false;
         }
         if (description == null) {
             if (other.description != null) {
