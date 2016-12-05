@@ -54,6 +54,11 @@ public class FamilyChildTest {
         FamilyChild fc2 = new FamilyChild();
         assertEquals(fc1, fc2);
 
+        fc1.getCustomFacts(true).add(new CustomFact("TEST"));
+        assertFalse(fc1.equals(fc2));
+        fc2.getCustomFacts(true).add(new CustomFact("TEST"));
+        assertEquals(fc1, fc2);
+
         fc2.setAdoptedBy(new StringWithCustomFacts("Test"));
         assertFalse(fc1.equals(fc2));
         fc1.setAdoptedBy(new StringWithCustomFacts("Test"));
