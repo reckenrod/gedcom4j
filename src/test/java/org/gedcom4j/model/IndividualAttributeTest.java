@@ -54,24 +54,31 @@ public class IndividualAttributeTest {
         assertNotSame(i1, i2);
         assertEquals(i1, i2);
 
-        i1.setAddress(new Address());
-        assertFalse(i1.equals(i2));
-        i2.setAddress(new Address());
-        assertEquals(i1, i2);
-
-        i1.setAge("One");
-        assertFalse(i1.equals(i2));
         i2.setAge("One");
+        assertFalse(i1.equals(i2));
+        i1.setAge("One");
+        assertEquals(i1, i2);
+        i2.setAge((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setAge((String) null);
         assertEquals(i1, i2);
 
-        i1.setCause("Two");
-        assertFalse(i1.equals(i2));
         i2.setCause("Two");
+        assertFalse(i1.equals(i2));
+        i1.setCause("Two");
+        assertEquals(i1, i2);
+        i2.setCause((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setCause((String) null);
         assertEquals(i1, i2);
 
-        i1.getCitations(true).add(new CitationWithoutSource());
+        i2.getCitations(true).add(new CitationWithSource());
         assertFalse(i1.equals(i2));
-        i2.getCitations(true).add(new CitationWithoutSource());
+        i1.getCitations(true).add(new CitationWithSource());
+        assertEquals(i1, i2);
+        i1.getCitations().clear();
+        assertFalse(i1.equals(i2));
+        i2.getCitations().clear();
         assertEquals(i1, i2);
 
         i1.getCustomFacts(true).add(new CustomFact("_FOO"));
@@ -79,29 +86,49 @@ public class IndividualAttributeTest {
         i2.getCustomFacts(true).add(new CustomFact("_FOO"));
         assertEquals(i1, i2);
 
-        i1.setDate("Three");
+        i2.setDate("Test");
         assertFalse(i1.equals(i2));
-        i2.setDate("Three");
+        i1.setDate("Test");
+        assertEquals(i1, i2);
+        i2.setDate((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setDate((String) null);
         assertEquals(i1, i2);
 
-        i1.setDescription("Four");
+        i2.setDescription("Test");
         assertFalse(i1.equals(i2));
-        i2.setDescription("Four");
+        i1.setDescription("Test");
+        assertEquals(i1, i2);
+        i2.setDescription((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setDescription((String) null);
         assertEquals(i1, i2);
 
-        i1.getEmails(true).add(new StringWithCustomFacts("Five"));
+        i2.getEmails(true).add(new StringWithCustomFacts("Test"));
         assertFalse(i1.equals(i2));
-        i2.getEmails(true).add(new StringWithCustomFacts("Five"));
+        i1.getEmails(true).add(new StringWithCustomFacts("Test"));
+        assertEquals(i1, i2);
+        i2.getEmails().clear();
+        assertFalse(i1.equals(i2));
+        i1.getEmails().clear();
         assertEquals(i1, i2);
 
-        i1.getFaxNumbers(true).add(new StringWithCustomFacts("Six"));
+        i2.getFaxNumbers(true).add(new StringWithCustomFacts("Test"));
         assertFalse(i1.equals(i2));
-        i2.getFaxNumbers(true).add(new StringWithCustomFacts("Six"));
+        i1.getFaxNumbers(true).add(new StringWithCustomFacts("Test"));
+        assertEquals(i1, i2);
+        i2.getFaxNumbers().clear();
+        assertFalse(i1.equals(i2));
+        i1.getFaxNumbers().clear();
         assertEquals(i1, i2);
 
-        i1.getMultimedia(true).add(new MultimediaReference(new Multimedia()));
+        i2.getMultimedia(true).add(new MultimediaReference());
         assertFalse(i1.equals(i2));
-        i2.getMultimedia(true).add(new MultimediaReference(new Multimedia()));
+        i1.getMultimedia(true).add(new MultimediaReference());
+        assertEquals(i1, i2);
+        i1.getMultimedia().clear();
+        assertFalse(i1.equals(i2));
+        i2.getMultimedia().clear();
         assertEquals(i1, i2);
 
         i1.getNoteStructures(true).add(new NoteStructure());
@@ -109,51 +136,86 @@ public class IndividualAttributeTest {
         i2.getNoteStructures(true).add(new NoteStructure());
         assertEquals(i1, i2);
 
-        i1.getPhoneNumbers(true).add(new StringWithCustomFacts("Seven"));
+        i2.getPhoneNumbers(true).add(new StringWithCustomFacts("Test"));
         assertFalse(i1.equals(i2));
-        i2.getPhoneNumbers(true).add(new StringWithCustomFacts("Seven"));
+        i1.getPhoneNumbers(true).add(new StringWithCustomFacts("Test"));
+        assertEquals(i1, i2);
+        i2.getPhoneNumbers().clear();
+        assertFalse(i1.equals(i2));
+        i1.getPhoneNumbers().clear();
         assertEquals(i1, i2);
 
-        i1.setPlace(new Place());
-        assertFalse(i1.equals(i2));
         i2.setPlace(new Place());
+        assertFalse(i1.equals(i2));
+        i1.setPlace(new Place());
+        assertEquals(i1, i2);
+        i2.setPlace((Place) null);
+        assertFalse(i1.equals(i2));
+        i1.setPlace((Place) null);
         assertEquals(i1, i2);
 
-        i1.setReligiousAffiliation("Eight");
+        i2.setReligiousAffiliation("Test");
         assertFalse(i1.equals(i2));
-        i2.setReligiousAffiliation("Eight");
+        i1.setReligiousAffiliation("Test");
+        assertEquals(i1, i2);
+        i2.setReligiousAffiliation((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setReligiousAffiliation((String) null);
         assertEquals(i1, i2);
 
-        i1.setRespAgency("Nine");
+        i2.setRespAgency("Test");
         assertFalse(i1.equals(i2));
-        i2.setRespAgency("Nine");
+        i1.setRespAgency("Test");
+        assertEquals(i1, i2);
+        i2.setRespAgency((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setRespAgency((String) null);
         assertEquals(i1, i2);
 
-        i1.setRestrictionNotice("Ten");
+        i2.setRestrictionNotice("Test");
         assertFalse(i1.equals(i2));
-        i2.setRestrictionNotice("Ten");
+        i1.setRestrictionNotice("Test");
+        assertEquals(i1, i2);
+        i2.setRestrictionNotice((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setRestrictionNotice((String) null);
         assertEquals(i1, i2);
 
-        i1.setSubType("Eleven");
+        i2.setSubType("Test");
         assertFalse(i1.equals(i2));
-        i2.setSubType("Eleven");
+        i1.setSubType("Test");
+        assertEquals(i1, i2);
+        i2.setSubType((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setSubType((String) null);
         assertEquals(i1, i2);
 
-        i1.setType(IndividualAttributeType.FACT);
-        assertFalse(i1.equals(i2));
         i2.setType(IndividualAttributeType.FACT);
-        assertEquals(i1, i2);
-
-        i1.getWwwUrls(true).add(new StringWithCustomFacts("Twelve"));
         assertFalse(i1.equals(i2));
-        i2.getWwwUrls(true).add(new StringWithCustomFacts("Twelve"));
+        i1.setType(IndividualAttributeType.FACT);
         assertEquals(i1, i2);
-
-        i1.setYNull("Thirteen");
+        i2.setType(null);
         assertFalse(i1.equals(i2));
-        i2.setYNull("Thirteen");
+        i1.setType(null);
         assertEquals(i1, i2);
 
+        i2.getWwwUrls(true).add(new StringWithCustomFacts("Test"));
+        assertFalse(i1.equals(i2));
+        i1.getWwwUrls(true).add(new StringWithCustomFacts("Test"));
+        assertEquals(i1, i2);
+        i1.getWwwUrls().clear();
+        assertFalse(i1.equals(i2));
+        i2.getWwwUrls().clear();
+        assertEquals(i1, i2);
+
+        i2.setYNull("1");
+        assertFalse(i1.equals(i2));
+        i1.setYNull("1");
+        assertEquals(i1, i2);
+        i2.setYNull((String) null);
+        assertFalse(i1.equals(i2));
+        i1.setYNull((String) null);
+        assertEquals(i1, i2);
     }
 
     /**
